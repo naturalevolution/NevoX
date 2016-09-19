@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<page:LoginPageXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="NevoX.Views.Authentication.LoginPage"
+                    xmlns:page="clr-namespace:NevoX.Views.Authentication;assembly=NevoX"
+                    xmlns:i18N="clr-namespace:NevoX.Localization;assembly=NevoX"
+                    xmlns:statics="clr-namespace:NevoX.Statics;assembly=NevoX"
+                    xmlns:converters="clr-namespace:NevoX.Converters;assembly=NevoX"
+                    Title="{Binding Title}">
+
+    <page:LoginPageXaml.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Text010" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Default" />
+            </Style>
+            <Style x:Key="Text011" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="Text012" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Micro" />
+            </Style>
+            <Style x:Key="Text014" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+
+            <Style x:Key="TextTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="FontSize" Value="Large" />
+
+            </Style>
+            <Style x:Key="TextMessage" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HeightRequest" Value="30" />
+            </Style>
+            <Style x:Key="EntryDefault" TargetType="Entry">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="White" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <converters:InverseBooleanConverter x:Key="BoolInverter" />
+            <converters:BoolToLabelOpacityConverter x:Key="BoolToLabelOpactityConverter" />
+
+            <Style x:Key="BackgroundSplash" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFill" />
+                <Setter Property="Source" Value="background_empty.png" />
+            </Style>
+            <Style x:Key="StackLayoutEndButton" TargetType="StackLayout">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="Padding" Value="60, 0, 60, 60" />
+                <Setter Property="Spacing" Value="10" />
+            </Style>
+
+            <Style x:Key="BtnWhite" TargetType="Button">
+                <Setter Property="TextColor" Value="{x:Static statics:Palette._002}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <Style x:Key="BtnTransparent" TargetType="Button">
+                <Setter Property="TextColor" Value="{x:Static statics:Palette._001}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+        </ResourceDictionary>
+    </page:LoginPageXaml.Resources>
+
+    <page:LoginPageXaml.Content>
+        <Grid>
+            <Image Style="{StaticResource BackgroundSplash}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout VerticalOptions="FillAndExpand" Padding="30, 0, 30, 50" Spacing="10">
+
+                    <Label Style="{StaticResource TextTitle}" Text="{i18N:Translate Login_SignInTitle}" />
+
+                    <Entry x:Key="EntryEmail" Keyboard="Email" Style="{StaticResource EntryDefault}"
+                           Text="{Binding LoginModel.Email}" Placeholder="{i18N:Translate Account_Field_Email}" />
+
+                    <Entry x:Key="EntryPassword" IsPassword="True" Keyboard="Text"
+                           Style="{StaticResource EntryDefault}"
+                           Text="{Binding LoginModel.Password}" Placeholder="{i18N:Translate Account_Field_Password}" />
+
+                    <Label Text="{Binding Message}" Style="{StaticResource TextMessage}"
+                           HorizontalTextAlignment="Center" />
+
+
+                    <Button x:Name="SignInButton" Style="{StaticResource BtnTransparent}"
+                            Text="{i18N:Translate Login_SignIn}"
+                            IsEnabled="{Binding IsConnecting, Converter={StaticResource BoolInverter}}"
+                            Opacity="{Binding IsConnecting, Converter={StaticResource BoolToLabelOpactityConverter}}" />
+
+                    <Button x:Name="CancelButton" Style="{StaticResource BtnWhite}" Text="{i18N:Translate Cancel}"
+                            IsEnabled="{Binding IsConnecting, Converter={StaticResource BoolInverter}}"
+                            Opacity="{Binding IsConnecting, Converter={StaticResource BoolToLabelOpactityConverter}}" />
+
+                </StackLayout>
+
+            </Grid>
+        </Grid>
+
+    </page:LoginPageXaml.Content>
+
+</page:LoginPageXaml>
