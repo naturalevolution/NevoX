@@ -14,6 +14,11 @@ namespace NevoX.Statics
         {
             get{ return new Thickness(0, 20, 0, 0); }
         }
+
+        public static Thickness StackLayout2Buttons
+        {
+            get { return new Thickness(60, 20, 60, 0); }
+        }
     }
 }
 

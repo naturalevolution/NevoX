@@ -23,13 +23,31 @@ namespace NevoX.Views.Splash
 
             SignInButton.Command = ViewModel.SignInCommand;
             NewAccountButton.Command = ViewModel.NewAccountCommand;
+
+
+
+            /*
+             
+
+            <Style x:Key="BtnWhite" TargetType="Button">
+                <Setter Property="TextColor" Value="{x:Static statics:Palette._002}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <Style x:Key="BtnTransparent" TargetType="Button">
+                <Setter Property="TextColor" Value="{x:Static statics:Palette._001}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+             */
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            NavigationPage.SetHasNavigationBar(this, false);
              
             // pause for a moment before animations
             await Task.Delay(App.AnimationSpeedFast);

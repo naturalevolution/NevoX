@@ -26,9 +26,7 @@ namespace NevoX.Views.Authentication
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            NavigationPage.SetHasNavigationBar(this, false);
-
+             
             // pause for a moment before animations
             await Task.Delay(App.AnimationSpeedFast);
             // Sequentially animate the login buttons. ScaleTo() makes them "grow" from a singularity to the full button size.

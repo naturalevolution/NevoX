@@ -22,7 +22,7 @@ namespace NevoX.ViewModels.Splash
         {
             get
             {
-                return new Command(() => App.Current.MainPage = new NavigationPage(new LoginPage()));
+                return new Command(() => App.Current.MainPage = new LoginPage());
             }
         }
 
@@ -33,7 +33,7 @@ namespace NevoX.ViewModels.Splash
         {
             get
             {
-                return new Command(() => App.GoToRoot());
+                return new Command(() => App.Current.MainPage = new SubscribePage());
             }
         }
     }

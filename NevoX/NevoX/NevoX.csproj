@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="Converters\BoolToLabelOpacityConverter.cs" />
     <Compile Include="Converters\InvertedBooleanConverter.cs" />
+    <Compile Include="Helpers\Boxs\RoundedBox.cs" />
     <Compile Include="Localization\ILocalize.cs" />
     <Compile Include="Localization\TextResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -47,6 +48,7 @@
       <DependentUpon>TextResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Localization\TranslateExtension.cs" />
+    <Compile Include="Views\Authentication\WelcomePage.cs" />
     <Compile Include="Views\Base\RootPage.cs" />
     <Compile Include="Statics\Fonts.cs" />
     <Compile Include="Statics\FontSizes.cs" />
@@ -72,6 +74,7 @@
       <DependentUpon>SplashPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Splash\SplashViewModel.cs" />
+    <Compile Include="Views\Authentication\SubscribePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\TextResources.resx">

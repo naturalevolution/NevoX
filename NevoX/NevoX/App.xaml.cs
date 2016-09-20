@@ -43,7 +43,7 @@ namespace NevoX
             // If the App.IsAuthenticated property is false, modally present the SplashPage.
             if (!_AuthenticationService.IsAuthenticated)
             {
-                MainPage = new NavigationPage(new SplashPage());
+                MainPage = new WelcomePage();
             }
             else
             {
